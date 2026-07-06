@@ -1,59 +1,849 @@
-<!-- ====== FEATURES / SOCIAL PROOF ====== -->
-<section class="section-padding--tight">
-    <div class="container">
-        <h3 class="section-title text-center" style="font-size:1.8rem;">
-            Why Luna<span class="text-gold">Venue</span>?
-        </h3>
-        <p class="section-subtitle text-center" style="margin-bottom:28px;">
-            A place where every detail is crafted for beauty and comfort.
-        </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luna Venue | Exclusive Fishery, Dining & Events in Western Romania</title>
+    <meta name="description" content="Luna Venue: a one-of-a-kind destination in Western Romania with a fishery, islands, restaurant, cabins, camping, and the best pizza. Perfect for weddings and business events." />
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">🏝️</span>
-                <h3>Private islands</h3>
-                <p>Exclusive access to serene, untouched islets.</p>
+    <!-- Google Fonts for a refined, elegant feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+
+    <style>
+        /* --- CSS Reset & Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4a843;
+            --gold-light: #f0e0b0;
+            --deep-blue: #0e1a2b;
+            --warm-nude: #fcf7f0;
+            --text-dark: #1e1e1e;
+            --text-soft: #4a4a4a;
+            --white: #ffffff;
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --shadow-lift: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
+            --transition: 0.25s ease;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            background-color: var(--warm-nude);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Utility --- */
+        .text-gold {
+            color: var(--gold);
+        }
+        .text-center {
+            text-align: center;
+        }
+        .section-padding {
+            padding: 72px 0;
+        }
+        .section-padding--tight {
+            padding: 48px 0;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.6rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-soft);
+            max-width: 640px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--deep-blue);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 14px 38px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+            cursor: pointer;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 14px rgba(14, 26, 43, 0.15);
+        }
+
+        .btn:hover {
+            background: #1f334a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(14, 26, 43, 0.20);
+        }
+
+        .btn--gold {
+            background: var(--gold);
+            color: var(--deep-blue);
+        }
+
+        .btn--gold:hover {
+            background: #c49a37;
+            color: var(--deep-blue);
+        }
+
+        .btn--outline {
+            background: transparent;
+            border: 2px solid var(--deep-blue);
+            color: var(--deep-blue);
+            box-shadow: none;
+        }
+
+        .btn--outline:hover {
+            background: var(--deep-blue);
+            color: var(--white);
+        }
+
+        /* --- Header / Nav --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            transition: background var(--transition);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--deep-blue);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--deep-blue) !important;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background: #c49a37 !important;
+            color: var(--deep-blue) !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 26px;
+            height: 2.5px;
+            background: var(--deep-blue);
+            border-radius: 4px;
+            transition: 0.2s ease;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 140px 0 80px 0;
+            background: linear-gradient(145deg, var(--warm-nude) 0%, #f5ede1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.10) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 3.4rem;
+            line-height: 1.15;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-soft);
+            margin-bottom: 28px;
+            max-width: 480px;
+            font-weight: 300;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .hero-badge {
+            background: var(--white);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--deep-blue);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero-image {
+            background: var(--deep-blue);
+            border-radius: var(--radius);
+            height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-light);
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-style: italic;
+            box-shadow: var(--shadow-lift);
+            background-image: linear-gradient(135deg, #1a2a3f 0%, #0e1a2b 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '✦';
+            font-size: 8rem;
+            opacity: 0.08;
+            position: absolute;
+        }
+
+        .hero-image span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Features Grid --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 28px;
+            margin-top: 12px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 28px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lift);
+        }
+
+        .feature-icon {
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            font-weight: 300;
+        }
+
+        /* --- Offerings (islands, fishery, etc) --- */
+        .offerings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .offering-item {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            box-shadow: var(--shadow-soft);
+            border-left: 4px solid var(--gold);
+            transition: transform var(--transition);
+        }
+
+        .offering-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .offering-item h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .offering-item p {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            font-weight: 300;
+        }
+
+        .offering-item .highlight {
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* --- CTA section (weddings & events) --- */
+        .cta-events {
+            background: var(--deep-blue);
+            color: var(--white);
+            border-radius: var(--radius);
+            padding: 56px 48px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin-top: 12px;
+        }
+
+        .cta-events h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .cta-events p {
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 480px;
+            font-weight: 300;
+        }
+
+        .cta-events .btn--gold {
+            flex-shrink: 0;
+        }
+
+        /* --- Pizza spotlight --- */
+        .pizza-spotlight {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 48px 40px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .pizza-spotlight .pizza-icon {
+            font-size: 3.6rem;
+            line-height: 1;
+        }
+
+        .pizza-spotlight .pizza-text {
+            flex: 1;
+        }
+
+        .pizza-spotlight .pizza-text h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .pizza-spotlight .pizza-text p {
+            color: var(--text-soft);
+            font-weight: 300;
+            margin-bottom: 0;
+        }
+
+        .pizza-spotlight .pizza-badge {
+            background: var(--gold-light);
+            color: var(--deep-blue);
+            padding: 6px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--deep-blue);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 48px 0 32px 0;
+            margin-top: 20px;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+        }
+        .footer-brand .logo span {
+            color: var(--gold);
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            max-width: 280px;
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 0.9rem;
+            transition: color var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 24px;
+            margin-top: 24px;
+            font-size: 0.85rem;
+            font-weight: 300;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-image {
+                height: 240px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 16px;
+                background: var(--white);
+                padding: 24px;
+                border-radius: var(--radius);
+                box-shadow: var(--shadow-lift);
+                position: absolute;
+                top: 72px;
+                right: 16px;
+                left: 16px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 120px 0 56px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .cta-events {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 24px;
+            }
+
+            .pizza-spotlight {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .footer-links {
+                gap: 24px;
+            }
+
+            .section-padding {
+                padding: 48px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 12px 28px;
+                font-size: 0.9rem;
+            }
+
+            .hero-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== NAVBAR ====== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="#" class="logo">Luna<span>Venue</span></a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#offerings">Experiences</a></li>
+                <li><a href="#events">Weddings &amp; Events</a></li>
+                <li><a href="#pizza">Pizza</a></li>
+                <li><a href="#contact" class="nav-cta">Inquire</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ====== HERO ====== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    Where water,<br />
+                    islands &amp; <span class="text-gold">exceptional</span> taste meet
+                </h1>
+                <p>
+                    A unique destination in Western Romania: fishery, private islands,
+                    restaurant, cabins, camping, and the region's finest pizza.
+                    Perfect for weddings, corporate retreats, and unforgettable getaways.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                    <a href="#events" class="btn btn--gold">Plan your event</a>
+                    <a href="#offerings" class="btn btn--outline">Explore</a>
+                </div>
+                <div class="hero-badges">
+                    <span class="hero-badge">🏝️ Private islands</span>
+                    <span class="hero-badge">🎣 Fishery</span>
+                    <span class="hero-badge">🍕 Best pizza in Western RO</span>
+                    <span class="hero-badge">💍 Weddings</span>
+                </div>
             </div>
-            <div class="feature-card">
-                <span class="feature-icon">🎣</span>
-                <h3>World-class fishery</h3>
-                <p>Abundant waters for anglers of all levels.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🏕️</span>
-                <h3>Cabins</h3>
-                <p>Cozy A-type cabins with modern comforts in nature.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">⛺</span>
-                <h3>Camping</h3>
-                <p>Pitch your tent under the stars. Wake up to pure tranquility.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🍕</span>
-                <h3>Award-winning pizza</h3>
-                <p>Raved about by locals and visitors alike — the best in the West.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🍽️</span>
-                <h3>Restaurant</h3>
-                <p>Elegant indoor dining and scenic outdoor terrace by the water.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">💍</span>
-                <h3>Dream weddings</h3>
-                <p>Romantic, picturesque, and flawlessly executed.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">💼</span>
-                <h3>Corporate events</h3>
-                <p>Professional conferences, product launches, and executive retreats.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🤝</span>
-                <h3>Team building</h3>
-                <p>Engaging activities, workshops, and bonding experiences in nature.</p>
+            <div class="hero-image">
+                <span>✦ Luna, apă și timpul ✦</span>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- ====== OFFERINGS ====== -->
+    <section class="section-padding" id="offerings">
+        <div class="container">
+            <h2 class="section-title text-center">An entire <span class="text-gold">world</span> to explore</h2>
+            <p class="section-subtitle text-center">
+                From tranquil fishing to lively events — LunaVenue is a complete escape.
+            </p>
+
+            <div class="offerings-grid">
+                <div class="offering-item">
+                    <h4>🎣 Fishery &amp; Islands</h4>
+                    <p>Pristine waters, private islands, and some of the best fishing in the region. A serene getaway for nature lovers.</p>
+                </div>
+                <div class="offering-item">
+                    <h4>🍽️ Restaurant &amp; Bar</h4>
+                    <p>Seasonal dishes, local ingredients, and a warm atmosphere. Dine by the water or in our elegant indoor space.</p>
+                </div>
+                <div class="offering-item">
+                    <h4>🏕️ Cabins &amp; Camping</h4>
+                    <p>Stay overnight in cozy A-type cabins or pitch your tent under the stars. Wake up to the sound of nature.</p>
+                </div>
+                <div class="offering-item">
+                    <h4>💍 Weddings &amp; Events</h4>
+                    <p>An idyllic setting for your big day or corporate retreat. Tailored packages, breathtaking views, and impeccable service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== EVENTS CTA ====== -->
+    <section class="section-padding--tight" id="events">
+        <div class="container">
+            <div class="cta-events">
+                <div>
+                    <h2>Your dream event <span class="text-gold">starts here</span></h2>
+                    <p>Weddings, corporate gatherings, team off-sites — we tailor every detail to make it unforgettable.</p>
+                </div>
+                <a href="#" class="btn btn--gold">Contact our events team →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== PIZZA SPOTLIGHT ====== -->
+    <section class="section-padding--tight" id="pizza">
+        <div class="container">
+            <div class="pizza-spotlight">
+                <div class="pizza-icon">🍕</div>
+                <div class="pizza-text">
+                    <h3>The best pizza in Western Romania</h3>
+                    <p>Wood-fired, perfectly crisp, and made with passion. A must-try for every visitor — locals drive miles for it.</p>
+                </div>
+                <span class="pizza-badge">#1 Pizza in the West</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FEATURES / SOCIAL PROOF ====== -->
+    <section class="section-padding--tight">
+        <div class="container">
+            <h3 class="section-title text-center" style="font-size:1.8rem;">
+                Why Luna<span class="text-gold">Venue</span>?
+            </h3>
+            <p class="section-subtitle text-center" style="margin-bottom:28px;">
+                A place where every detail is crafted for beauty and comfort.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🏝️</span>
+                    <h3>Private islands</h3>
+                    <p>Exclusive access to serene, untouched islets.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎣</span>
+                    <h3>World-class fishery</h3>
+                    <p>Abundant waters for anglers of all levels.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🏕️</span>
+                    <h3>Cabins</h3>
+                    <p>Cozy A-type cabins with modern comforts in nature.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⛺</span>
+                    <h3>Camping</h3>
+                    <p>Pitch your tent under the stars. Wake up to pure tranquility.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🍕</span>
+                    <h3>Award-winning pizza</h3>
+                    <p>Raved about by locals and visitors alike — the best in the West.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🍽️</span>
+                    <h3>Restaurant</h3>
+                    <p>Elegant indoor dining and scenic outdoor terrace by the water.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💍</span>
+                    <h3>Dream weddings</h3>
+                    <p>Romantic, picturesque, and flawlessly executed.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💼</span>
+                    <h3>Corporate events</h3>
+                    <p>Professional conferences, product launches, and executive retreats.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🤝</span>
+                    <h3>Team building</h3>
+                    <p>Engaging activities, workshops, and bonding experiences in nature.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CONTACT / INQUIRY ====== -->
+    <section class="section-padding" id="contact" style="padding-top:32px;">
+        <div class="container text-center">
+            <h2 class="section-title" style="font-size:2rem;">
+                Ready to experience <span class="text-gold">LunaVenue</span>?
+            </h2>
+            <p class="section-subtitle" style="max-width:500px;">
+                Reach out for event inquiries, reservations, or just to say hello.
+                We'd love to welcome you.
+            </p>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-top:8px;">
+                <a href="#" class="btn btn--gold">📩 Inquire now</a>
+                <a href="#" class="btn btn--outline">📞 +40 123 456 789</a>
+            </div>
+            <p style="margin-top:20px; font-size:0.9rem; color:var(--text-soft); font-weight:300;">
+                Follow us on <a href="#" style="color:var(--gold); text-decoration:none; font-weight:500;">Facebook</a> for updates and events.
+            </p>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <a href="#" class="logo">Luna<span>Venue</span></a>
+                <p>Luna, apă și timpul — a destination unlike any other.<br />Western Romania's finest fishery, islands, dining, and events.</p>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <h4>Explore</h4>
+                    <a href="#offerings">Experiences</a>
+                    <a href="#events">Weddings &amp; Events</a>
+                    <a href="#pizza">Our Pizza</a>
+                </div>
+                <div>
+                    <h4>Visit</h4>
+                    <a href="#">Location &amp; Hours</a>
+                    <a href="#">Cabins &amp; Camping</a>
+                    <a href="#">Restaurant</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                &copy; 2026 LunaVenue — Luna, apă și timpul. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ====== HAMBURGER SCRIPT ====== -->
+    <script>
+        const hamburger = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu on link click (mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+</body>
+</html>
