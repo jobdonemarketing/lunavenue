@@ -1,80 +1,1503 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luna Venue | Exclusive Fishery & Island Escape</title>
-  <style>
-    :root {
-      --gold: #e8b923;
-      --deep-green: #0f3a2a;
-      --light: #f8f4eb;
-    }
-    body { margin:0; font-family: 'Georgia', serif; color: #333; background: #0a1f18; line-height: 1.6; }
-    header {
-      height: 100vh; background: linear-gradient(rgba(10,31,24,0.6), rgba(10,31,24,0.8)), url('https://i.imgur.com/placeholder.jpg') center/cover no-repeat; /* Replace with your images */
-      display: flex; align-items: center; justify-content: center; text-align: center; color: white;
-    }
-    .hero-content h1 { font-size: 4.5rem; margin:0; text-shadow: 0 4px 20px rgba(0,0,0,0.7); }
-    nav { position: fixed; top:0; width:100%; background: rgba(15,58,42,0.95); z-index: 100; padding: 1rem 5%; display:flex; justify-content:space-between; align-items:center; }
-    .nav-links a { color:white; margin:0 1.2rem; text-decoration:none; font-weight:500; }
-    .section { padding: 100px 5%; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 2rem; }
-    .card { background: white; border-radius: 12px; overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s; }
-    .card:hover { transform: translateY(-15px); }
-    .card img { width:100%; height:240px; object-fit: cover; }
-    footer { background: #0a1f18; color: #ccc; text-align:center; padding: 3rem; }
-    .cta { background: var(--gold); color: #0a1f18; padding: 14px 32px; border:none; border-radius: 50px; font-size: 1.1rem; cursor:pointer; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUNA · Water. Nature. Time.</title>
+    <meta name="description" content="A secluded island destination between Timișoara and Arad. Lakeside dining, live music, camping, and unforgettable moments.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-sea: #355E74;
+            --text: #4A4137;
+            --heading: #5E6A45;
+            --border: #D8CCBB;
+            --bg-main: #F6F2EB;
+            --bg-section: #EFE6D7;
+            --bg-dark: #2C2A26;
+            --champagne-bronze: #B58A5A;
+            --sunset-gold: #CDAA5D;
+
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Inter', sans-serif;
+            --font-button: 'Manrope', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-weight: 300;
+            color: var(--text);
+            background: var(--bg-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================================
+           TYPOGRAPHY
+           ============================================================ */
+        .heading-lg {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--heading);
+        }
+
+        .heading-sm {
+            font-family: var(--font-serif);
+            font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--heading);
+        }
+
+        .body-lg {
+            font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .body-sm {
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-button);
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary {
+            background: var(--deep-sea);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #4B7C8D;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(53, 94, 116, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            border-color: #fff;
+        }
+
+        .btn-gold {
+            background: var(--champagne-bronze);
+            color: #fff;
+        }
+
+        .btn-gold:hover {
+            background: #c9a06a;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(181, 138, 90, 0.3);
+        }
+
+        /* ============================================================
+           NAVIGATION
+           ============================================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .nav.scrolled {
+            background: rgba(246, 242, 235, 0.92);
+            backdrop-filter: blur(20px);
+            padding: 16px 40px;
+            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav.scrolled .nav-logo {
+            color: var(--text);
+        }
+
+        .nav.scrolled .nav-links a {
+            color: var(--text);
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: #fff;
+            transition: all 0.25s ease;
+        }
+
+        .nav-logo span {
+            font-weight: 300;
+            opacity: 0.5;
+            font-size: 0.8rem;
+            letter-spacing: 0.3em;
+            margin-left: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-button);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #fff;
+            opacity: 0.7;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #fff;
+            transition: all 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--deep-sea);
+            color: #fff !important;
+            padding: 10px 28px;
+            border-radius: 2px;
+            opacity: 1 !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: #4B7C8D;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 28px;
+            height: 1.5px;
+            background: #fff;
+            transition: all 0.25s ease;
+        }
+
+        .nav.scrolled .nav-toggle span {
+            background: var(--text);
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ============================================================
+           HERO - 126.jpg as background
+           ============================================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-main);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%),
+                url('126.jpg') center center / cover no-repeat;
+            animation: heroZoom 30s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+
+        @keyframes heroZoom {
+            0% {
+                transform: scale(1.02);
+            }
+            100% {
+                transform: scale(1.08);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 40px 24px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: var(--font-button);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            color: #fff;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title span {
+            display: block;
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            font-weight: 300;
+            letter-spacing: 0.5em;
+            opacity: 0.6;
+            margin-top: 8px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-sub {
+            font-family: var(--font-serif);
+            font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+            font-weight: 300;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 24px auto 40px;
+            max-width: 600px;
+            line-height: 1.6;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 400;
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
+
+        .hero-scroll::after {
+            content: '';
+            width: 1px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes scrollBounce {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(8px);
+            }
+        }
+
+        /* ============================================================
+           SECTION COMMON
+           ============================================================ */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-alt {
+            background: var(--bg-section);
+        }
+
+        .section-dark {
+            background: var(--bg-dark);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .section-dark .heading-lg {
+            color: #fff;
+        }
+
+        .section-label {
+            font-family: var(--font-button);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--champagne-bronze);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* ============================================================
+           WELCOME
+           ============================================================ */
+        .welcome-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .welcome-image {
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .welcome-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: all 0.8s ease;
+        }
+
+        .welcome-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .welcome-content .heading-lg {
+            margin-bottom: 20px;
+        }
+
+        .welcome-content .body-lg {
+            margin-bottom: 28px;
+        }
+
+        /* ============================================================
+           EXPERIENCES
+           ============================================================ */
+        .experiences-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 48px;
+        }
+
+        .experience-card {
+            background: #fff;
+            border-radius: 4px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(216, 204, 187, 0.3);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        .experience-icon {
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .experience-card .heading-sm {
+            margin-bottom: 10px;
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            margin-top: 14px;
+        }
+
+        .experience-tags span {
+            font-size: 0.7rem;
+            padding: 4px 14px;
+            background: var(--bg-main);
+            border-radius: 100px;
+            color: var(--text);
+            opacity: 0.7;
+            letter-spacing: 0.02em;
+        }
+
+        /* ============================================================
+           WILLOW SECTION
+           ============================================================ */
+        .willow-section {
+            padding: 0;
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .willow-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(180deg, rgba(44, 42, 38, 0.3) 0%, rgba(44, 42, 38, 0.6) 100%),
+                url('3.jpg') center center / cover no-repeat;
+            transform: scale(1.01);
+            transition: all 0.8s ease;
+        }
+
+        .willow-section:hover .willow-bg {
+            transform: scale(1.04);
+        }
+
+        .willow-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 80px 24px;
+        }
+
+        .willow-content .heading-lg {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .willow-content .body-lg {
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        /* ============================================================
+           GALLERY
+           ============================================================ */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 280px;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .gallery-grid .gallery-item {
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-grid .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-grid .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-grid .gallery-item:nth-child(1) {
+            grid-row: span 2;
+        }
+        .gallery-grid .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+        .gallery-grid .gallery-item:nth-child(6) {
+            grid-row: span 2;
+        }
+
+        /* ============================================================
+           SUNSET SECTION
+           ============================================================ */
+        .sunset-section {
+            padding: 0;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .sunset-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(180deg, rgba(44, 42, 38, 0.2) 0%, rgba(44, 42, 38, 0.7) 100%),
+                url('126.jpg') center center / cover no-repeat;
+        }
+
+        .sunset-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            padding: 80px 24px;
+        }
+
+        .sunset-content .heading-lg {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .sunset-content .body-lg {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+        }
+
+        /* ============================================================
+           WEDDINGS
+           ============================================================ */
+        .weddings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 600px;
+        }
+
+        .weddings-image {
+            background: url('4.jpg') center center / cover no-repeat;
+            min-height: 400px;
+        }
+
+        .weddings-content {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--bg-section);
+        }
+
+        .weddings-content .heading-lg {
+            margin-bottom: 16px;
+        }
+
+        .weddings-content .body-lg {
+            margin-bottom: 28px;
+        }
+
+        /* ============================================================
+           STATISTICS
+           ============================================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: var(--heading);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 400;
+            opacity: 0.6;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        .section-dark .stat-number {
+            color: #fff;
+        }
+
+        /* ============================================================
+           TESTIMONIALS
+           ============================================================ */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 4px;
+            padding: 36px 32px;
+            border: 1px solid rgba(216, 204, 187, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        .testimonial-stars {
+            color: var(--sunset-gold);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-text {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .testimonial-author {
+            font-size: 0.8rem;
+            font-weight: 500;
+            opacity: 0.6;
+            letter-spacing: 0.04em;
+        }
+
+        /* ============================================================
+           CTA
+           ============================================================ */
+        .cta-section {
+            text-align: center;
+            padding: 100px 24px;
+            background: var(--bg-section);
+        }
+
+        .cta-section .heading-lg {
+            margin-bottom: 16px;
+        }
+
+        .cta-section .body-lg {
+            max-width: 600px;
+            margin: 0 auto 36px;
+            opacity: 0.7;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            background: var(--bg-dark);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 60px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-brand .nav-logo {
+            color: #fff;
+            font-size: 1.8rem;
+        }
+
+        .footer-brand p {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            max-width: 300px;
+            line-height: 1.6;
+        }
+
+        .footer h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: 0.04em;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer ul a {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            transition: all 0.25s ease;
+        }
+
+        .footer ul a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            opacity: 0.4;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-socials a {
+            opacity: 0.5;
+            transition: all 0.25s ease;
+            font-size: 0.85rem;
+        }
+
+        .footer-socials a:hover {
+            opacity: 1;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .welcome-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .welcome-image img {
+                height: 350px;
+            }
+
+            .experiences-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 220px;
+            }
+
+            .gallery-grid .gallery-item:nth-child(1) {
+                grid-row: span 1;
+            }
+            .gallery-grid .gallery-item:nth-child(4) {
+                grid-column: span 1;
+            }
+            .gallery-grid .gallery-item:nth-child(6) {
+                grid-row: span 1;
+            }
+
+            .weddings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .weddings-image {
+                min-height: 300px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(246, 242, 235, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 32px 40px;
+                gap: 20px;
+                align-items: flex-start;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+            }
+
+            .nav-links.open a {
+                font-size: 0.9rem;
+                color: var(--text) !important;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav {
+                padding: 16px 24px;
+            }
+
+            .nav.scrolled {
+                padding: 12px 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .experiences-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 160px;
+                gap: 10px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: clamp(3rem, 10vw, 4.5rem);
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .weddings-content {
+                padding: 40px 24px;
+            }
+
+            .experience-card {
+                padding: 30px 20px;
+            }
+
+            .cta-section {
+                padding: 60px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 120px;
+                gap: 8px;
+            }
+
+            .hero-badge {
+                font-size: 0.55rem;
+                padding: 6px 16px;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-logo span {
+                font-size: 0.6rem;
+            }
+        }
+
+        /* ============================================================
+           UTILITY
+           ============================================================ */
+        .text-center {
+            text-align: center;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 {
+            transition-delay: 0.1s;
+        }
+        .fade-in-delay-2 {
+            transition-delay: 0.2s;
+        }
+        .fade-in-delay-3 {
+            transition-delay: 0.3s;
+        }
+        .fade-in-delay-4 {
+            transition-delay: 0.4s;
+        }
+    </style>
 </head>
 <body>
 
-<nav>
-  <div style="font-size:1.8rem; color:white; font-weight:bold;">Luna Venue</div>
-  <div class="nav-links">
-    <a href="#experiences">Experiences</a>
-    <a href="#stay">Stay</a>
-    <a href="#dining">Dining</a>
-    <a href="#events">Events</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+    <!-- ============================================================
+    NAVIGATION
+    ============================================================ -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">
+            LUNA
+            <span>· Water · Nature · Time</span>
+        </a>
 
-<header>
-  <div class="hero-content">
-    <h1>Luna Venue</h1>
-    <p style="font-size:1.8rem; margin:1rem 0;">Where water, private islands & exceptional taste meet</p>
-    <p style="max-width:600px; margin:0 auto 2rem;">Exclusive fishery, gourmet dining, and unforgettable getaways in Western Romania</p>
-    <button class="cta" onclick="document.getElementById('experiences').scrollIntoView({behavior:'smooth'})">Discover Experiences</button>
-  </div>
-</header>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#welcome">The Island</a></li>
+            <li><a href="#experiences">Experiences</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#weddings">Weddings</a></li>
+            <li><a href="#contact" class="nav-cta">Reserve</a></li>
+        </ul>
 
-<section id="experiences" class="section" style="background:#f8f4eb;">
-  <h2 style="text-align:center; font-size:2.8rem; color:var(--deep-green);">Our World</h2>
-  <div class="grid">
-    <div class="card"><img src="YOUR_FISHERY_IMAGE.jpg" alt="Fishery"><h3>Fishery & Private Islands</h3><p>Serene waters and exclusive islets for the perfect angling escape.</p></div>
-    <div class="card"><img src="YOUR_RESTAURANT_IMAGE.jpg" alt="Dining"><h3>Gourmet Dining</h3><p>Wood-fired pizza acclaimed as the best in Western Romania + seasonal local dishes.</p></div>
-    <div class="card"><img src="YOUR_CABIN_IMAGE.jpg" alt="Cabins"><h3>Cabins & Camping</h3><p>Cozy A-frame cabins and starlit camping by the water.</p></div>
-  </div>
-</section>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 
-<section id="gallery" class="section" style="background:#0a1f18; color:white;">
-  <h2 style="text-align:center; font-size:2.8rem;">Artistic Moments</h2>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem;">
-    <!-- Add more images here -->
-    <img src="YOUR_SAMPLE_SUNSET.jpg" alt="Sunset at Luna Venue" style="width:100%; border-radius:12px;">
-    <!-- Upload more artistic photos here -->
-  </div>
-</section>
+    <!-- ============================================================
+    HERO - 126.jpg as BACKGROUND
+    ============================================================ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
 
-<!-- Similar sections for Stay, Dining, Events... -->
+        <div class="hero-content">
+            <div class="hero-badge">✦ A hidden island between the lakes</div>
+            <h1 class="hero-title">
+                LUNA
+                <span>Water. Nature. Time.</span>
+            </h1>
+            <p class="hero-sub">
+                Where water slows time, nature becomes your host,<br>
+                and every gathering turns into a memory.
+            </p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Reserve Your Table</a>
+                <a href="#welcome" class="btn btn-secondary">Discover Luna</a>
+            </div>
+        </div>
 
-<footer id="contact">
-  <p>&copy; Luna Venue • Western Romania</p>
-  <p>Reach out for reservations, weddings, or corporate retreats</p>
-  <button class="cta">Book Now</button>
-</footer>
+        <div class="hero-scroll">Scroll</div>
+    </section>
+
+    <!-- ============================================================
+    WELCOME
+    ============================================================ -->
+    <section id="welcome">
+        <div class="container">
+            <div class="welcome-grid">
+                <div class="welcome-image fade-in">
+                    <img src="125.jpg" alt="Luna island landscape with willow trees" loading="lazy">
+                </div>
+                <div class="welcome-content fade-in fade-in-delay-1">
+                    <span class="section-label">Welcome to Luna</span>
+                    <h2 class="heading-lg">More than a destination.</h2>
+                    <p class="body-lg">
+                        Hidden among peaceful lakes and surrounded by graceful willow trees,
+                        Luna is a place where every season paints a different story. Whether
+                        you arrive for lunch, a sunset celebration, a wedding, or simply a
+                        peaceful afternoon, you'll discover something increasingly rare:
+                        silence, beauty, and time.
+                    </p>
+                    <a href="#experiences" class="btn btn-primary">Explore Experiences</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    EXPERIENCES
+    ============================================================ -->
+    <section id="experiences" class="section-alt">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label">Discover</span>
+                <h2 class="heading-lg">Experiences</h2>
+                <p class="body-lg" style="max-width:600px;margin:0 auto;opacity:0.7;">
+                    Every moment at Luna is designed to slow time and deepen connection.
+                </p>
+            </div>
+
+            <div class="experiences-grid">
+                <div class="experience-card fade-in fade-in-delay-1">
+                    <span class="experience-icon">🌿</span>
+                    <h3 class="heading-sm">Lakeside Dining</h3>
+                    <p class="body-sm">
+                        Seasonal cuisine inspired by local traditions, prepared with care
+                        and served beside the water.
+                    </p>
+                </div>
+
+                <div class="experience-card fade-in fade-in-delay-2">
+                    <span class="experience-icon">🎻</span>
+                    <h3 class="heading-sm">Celebrations</h3>
+                    <p class="body-sm">
+                        Weddings, birthdays, private events, and corporate retreats—each
+                        one framed by nature's beauty.
+                    </p>
+                    <div class="experience-tags">
+                        <span>Weddings</span>
+                        <span>Birthdays</span>
+                        <span>Retreats</span>
+                    </div>
+                </div>
+
+                <div class="experience-card fade-in fade-in-delay-3">
+                    <span class="experience-icon">🌅</span>
+                    <h3 class="heading-sm">Slow Living</h3>
+                    <p class="body-sm">
+                        Camping under the stars, SUPs across the lake, fishing, fire pits,
+                        and sunsets that never rush.
+                    </p>
+                    <div class="experience-tags">
+                        <span>Camping</span>
+                        <span>SUP</span>
+                        <span>Fishing</span>
+                        <span>Fire Pit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    WILLOW SECTION
+    ============================================================ -->
+    <section class="willow-section" id="willow">
+        <div class="willow-bg"></div>
+        <div class="willow-content fade-in">
+            <span class="section-label" style="color:var(--sunset-gold);">Nature's Architecture</span>
+            <h2 class="heading-lg">Some ceilings are built by architects.</h2>
+            <p class="body-lg">Ours grew naturally.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    GALLERY
+    ============================================================ -->
+    <section id="gallery">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label">Moments</span>
+                <h2 class="heading-lg">Gallery</h2>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in fade-in-delay-1">
+                    <img src="4.jpg" alt="Luna wedding celebration" loading="lazy">
+                </div>
+                <div class="gallery-item fade-in fade-in-delay-2">
+                    <img src="36.jpg" alt="Evening at Luna with fairy lights" loading="lazy">
+                </div>
+                <div class="gallery-item fade-in fade-in-delay-3">
+                    <img src="126.jpg" alt="Sunset over the lake" loading="lazy">
+                </div>
+                <div class="gallery-item fade-in fade-in-delay-4">
+                    <img src="125.jpg" alt="Willow trees by the water" loading="lazy">
+                </div>
+                <div class="gallery-item fade-in fade-in-delay-1">
+                    <img src="129.jpg" alt="Aerial view of Luna island" loading="lazy">
+                </div>
+                <div class="gallery-item fade-in fade-in-delay-2">
+                    <img src="3.jpg" alt="Dining beneath the willows" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SUNSET SECTION
+    ============================================================ -->
+    <section class="sunset-section" id="sunset">
+        <div class="sunset-bg"></div>
+        <div class="sunset-content fade-in">
+            <span class="section-label" style="color:var(--sunset-gold);">Every Evening</span>
+            <h2 class="heading-lg">When the sun disappears,<br>the island begins to glow.</h2>
+            <p class="body-lg">
+                Warm string lights. Conversations around the fire. Music drifting
+                across the water. The reflections on the lake become the evening's
+                soundtrack.
+            </p>
+            <a href="#contact" class="btn btn-gold">Experience the Evening</a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    WEDDINGS
+    ============================================================ -->
+    <section id="weddings">
+        <div class="weddings-grid">
+            <div class="weddings-image"></div>
+            <div class="weddings-content fade-in">
+                <span class="section-label">Celebrate with Us</span>
+                <h2 class="heading-lg">Your celebration deserves more than a venue.</h2>
+                <p class="body-lg">
+                    It deserves a landscape. Ceremonies beneath ancient willows.
+                    Dinner beside the water. Golden sunsets. An unforgettable beginning.
+                </p>
+                <a href="#contact" class="btn btn-primary">Plan Your Event</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    STATISTICS
+    ============================================================ -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="fade-in">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Private Island</span>
+                </div>
+                <div class="fade-in fade-in-delay-1">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Lakeside Sunsets</span>
+                </div>
+                <div class="fade-in fade-in-delay-2">
+                    <span class="stat-number">✦</span>
+                    <span class="stat-label">Outdoor Events</span>
+                </div>
+                <div class="fade-in fade-in-delay-3">
+                    <span class="stat-number">⛺</span>
+                    <span class="stat-label">Camping &amp; Nature</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    TESTIMONIALS
+    ============================================================ -->
+    <section class="section-alt" id="testimonials">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label">Guest Stories</span>
+                <h2 class="heading-lg">What guests say</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in fade-in-delay-1">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "One of the most peaceful places we've ever visited. The willows,
+                        the water, the food—everything felt like a dream."
+                    </p>
+                    <span class="testimonial-author">— Andreea &amp; Mihai</span>
+                </div>
+
+                <div class="testimonial-card fade-in fade-in-delay-2">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "The sunset alone was worth the trip. We stayed until the stars
+                        came out and didn't want to leave."
+                    </p>
+                    <span class="testimonial-author">— Cristina</span>
+                </div>
+
+                <div class="testimonial-card fade-in fade-in-delay-3">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Our wedding looked like something from Tuscany—but it was right
+                        here, surrounded by willow trees and lake light."
+                    </p>
+                    <span class="testimonial-author">— Ana &amp; Vlad</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CTA
+    ============================================================ -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="fade-in">
+                <span class="section-label">Visit Luna</span>
+                <h2 class="heading-lg">Come for lunch.<br>Stay for the sunset.<br>Remember it forever.</h2>
+                <p class="body-lg">
+                    Between Timișoara and Arad, a hidden island awaits.
+                </p>
+                <div class="cta-actions">
+                    <a href="#" class="btn btn-primary">Reserve Your Experience</a>
+                    <a href="#" class="btn btn-secondary">View Location</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        LUNA
+                        <span>· Water · Nature · Time</span>
+                    </a>
+                    <p>
+                        A secluded island destination where nature sets the pace
+                        and every visit becomes a memory.
+                    </p>
+                </div>
+
+                <div>
+                    <h4>Discover</h4>
+                    <ul>
+                        <li><a href="#welcome">The Island</a></li>
+                        <li><a href="#experiences">Experiences</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#weddings">Weddings</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Visit</h4>
+                    <ul>
+                        <li><a href="#">Reservations</a></li>
+                        <li><a href="#">Location</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Follow</h4>
+                    <ul>
+                        <li><a href="https://www.facebook.com/p/Luna-apa-si-timpul-100083507794855/" target="_blank">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2025 LUNA · Water. Nature. Time.</span>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/p/Luna-apa-si-timpul-100083507794855/" target="_blank">Facebook</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // Navigation
+        const nav = document.getElementById('nav');
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 80) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Fade-in on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smooth anchor scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Hero parallax
+        const heroBg = document.querySelector('.hero-bg');
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (heroBg && scrolled < window.innerHeight) {
+                heroBg.style.transform = `scale(1.02) translateY(${scrolled * 0.4}px)`;
+            }
+        });
+
+        console.log('🌿 LUNA · Water. Nature. Time.');
+        console.log('✦ A hidden island between the lakes.');
+        console.log('📸 Hero background: 126.jpg');
+    </script>
 
 </body>
 </html>
